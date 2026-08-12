@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560">
+  <rect width="1000" height="560" fill="#fff"/>
+  <rect x="48" y="42" width="904" height="476" rx="24" fill="#f8fafc" stroke="#e2e8f0"/>
+  <circle cx="116" cy="110" r="22" fill="#1fb6ff"/>
+  <circle cx="160" cy="110" r="22" fill="#f59e0b"/>
+  <text x="205" y="120" font-family="Arial" font-size="34" font-weight="900" fill="#1e293b">Government Services</text>
+  <text x="96" y="185" font-family="Arial" font-size="26" font-weight="800" fill="#334155">A single stop for all services and journeys</text>
+  <rect x="96" y="235" width="410" height="56" rx="12" fill="#fff" stroke="#dbe4ef"/>
+  <text x="126" y="271" font-family="Arial" font-size="18" fill="#94a3b8">What are you looking for?</text>
+  <path d="M570 180c128 14 229 96 326 220" fill="none" stroke="#93c5fd" stroke-width="10" opacity=".5"/>
+  <path d="M570 230c118 12 214 75 311 175" fill="none" stroke="#38bdf8" stroke-width="6" opacity=".45"/>
+  <rect x="812" y="208" width="52" height="52" rx="15" fill="#fb923c"/>
+  <rect x="812" y="276" width="52" height="52" rx="15" fill="#fb923c"/>
+  <rect x="812" y="344" width="52" height="52" rx="15" fill="#fb923c"/>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <circle cx="80" cy="80" r="72" fill="#17103d"/>
+  <circle cx="80" cy="80" r="62" fill="#3b1686" stroke="#9b5cff" stroke-width="4"/>
+  <circle cx="80" cy="80" r="42" fill="#10172a"/>
+  <text x="80" y="72" font-size="21" font-family="Arial" font-weight="900" text-anchor="middle" fill="#fff">PMP®</text>
+  <text x="80" y="94" font-size="10" font-family="Arial" font-weight="700" text-anchor="middle" fill="#c4b5fd">CERTIFIED</text>
+  <text x="80" y="119" font-size="13" font-family="Arial" font-weight="900" text-anchor="middle" fill="#fff">PMI</text>
+</svg>
