@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <path d="M80 9l58 20v45c0 38-22 62-58 77-36-15-58-39-58-77V29z" fill="#0f3e69"/>
+  <path d="M80 20l46 16v36c0 30-17 50-46 63-29-13-46-33-46-63V36z" fill="#0067b8"/>
+  <rect x="31" y="48" width="98" height="42" rx="8" fill="white" transform="rotate(-8 80 69)"/>
+  <text x="80" y="70" font-size="17" font-family="Arial" font-weight="900" text-anchor="middle" fill="#0f172a">AZURE</text>
+  <text x="80" y="91" font-size="15" font-family="Arial" font-weight="900" text-anchor="middle" fill="#0f172a">ASSOCIATE</text>
+  <text x="80" y="122" font-size="26" font-family="Arial" font-weight="900" text-anchor="middle" fill="white">★★</text>
+</svg>

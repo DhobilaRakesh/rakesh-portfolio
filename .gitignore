@@ -1,0 +1,17 @@
+/node_modules
+/dist
+/.angular
+npm-debug.log
+*.log
+.DS_Store
+
+# Personal documents
+src/assets/*.pdf
+src/assets/*.docx
+src/assets/*.zip
+
+# Private/sensitive images
+src/assets/ABHA.png
+src/assets/abha1.png
+src/assets/abha2.png
+src/assets/emrABHA.png
