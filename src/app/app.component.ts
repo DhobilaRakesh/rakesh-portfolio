@@ -57,12 +57,13 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     subtitle: 'Angular • TypeScript',
     location: 'Hyderabad, India',
     email: 'rakeshdhobila006@gmail.com',
-    website: 'https://lnkd.in/dursZpFf',
+    // website: 'https://lnkd.in/dursZpFf',
+    website: 'https://lnkd.in/ghK3yN3Q',
     phone: '+91 8639822946',
     whatsapp: 'https://wa.me/918639822946',
     photo: 'assets/rakesh1.jpeg',
-    resume: 'assets/Resume_latest.pdf',
-    coverLetter: 'assets/Cover_Letter_latest.pdf'
+    resume: 'assets/Rakesh_Resume.pdf',
+    coverLetter: 'assets/Rakesh_Cover_Letter.pdf'
   };
 
   navLinks: NavLink[] = [
