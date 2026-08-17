@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, HostListener, OnDestroy, QueryList, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, OnDestroy, QueryList, ViewChild, ViewChildren } from '@angular/core';
 
 interface SocialLink {
   label: string;
@@ -80,6 +80,16 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   scrollProgress = 0;
   showBackToTop = false;
 
+  /** Mobile "scroll for more" hint — pinned to the viewport, not the hero, so it's
+   *  visible immediately no matter how tall the hero renders on a given phone.
+   *  Two conditions gate it: the page must actually be taller than the viewport
+   *  (`hasMoreContent`), and the hero must not yet be mostly scrolled out of view
+   *  (`heroScrollCueDismissed`, driven by an IntersectionObserver below). */
+  showScrollCue = false;
+  heroScrollCueDismissed = false;
+  private hasMoreContent = false;
+  private heroObserver?: IntersectionObserver;
+
   socialLinks: SocialLink[] = [
     { label: 'LinkedIn', icon: 'in', url: 'https://www.linkedin.com/in/rakesh-dhobila-a34523222/' },
     { label: 'GitHub', icon: 'GH', url: 'https://github.com/DhobilaRakesh' },
@@ -97,15 +107,15 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   techIcons = ['Angular', 'TypeScript', 'Node.js', 'MongoDB', 'jQuery', 'HTML5', 'CSS3', 'React', 'JavaScript', 'REST APIs'];
 
   summaryPoints = [
-    '3+ years of professional experience in frontend web application development using Angular, TypeScript, HTML5, CSS3, SCSS, Bootstrap, and RxJS.',
-    '1 year of hands-on experience in backend development using Node.js, Express.js, and MongoDB for building RESTful APIs and server-side applications.',
+    '3+ years of professional experience in front end web application development using Angular, TypeScript, HTML5, CSS3, SCSS, Bootstrap, and RxJS.',
+    '1 year of hands-on experience in back end development using Node.js, Express.js, and MongoDB for building RESTful APIs and server-side applications.',
     'Strong expertise in Angular, TypeScript, RxJS, HTML5, CSS3, Bootstrap, PrimeNG, and building scalable, maintainable frontend applications.',
     'Experience in designing, developing, and consuming RESTful APIs using Node.js and Express.js.',
     'Hands-on experience with MongoDB, including schema design, CRUD operations, queries, and aggregation pipelines.',
-    'Good experience integrating Angular applications with backend APIs using HttpClient, services, and RxJS.',
+    'Good experience integrating Angular applications with back end APIs using HttpClient, services, and RxJS.',
     'Strong understanding of Angular concepts such as components, modules, routing, lazy loading, reactive forms, directives, pipes, dependency injection, and state management.',
     'Experience in improving application performance through code optimization, lazy loading, efficient change detection, and responsive UI development.',
-    'Worked on debugging, troubleshooting, and resolving issues across frontend, backend, and database layers.',
+    'Worked on debugging, troubleshooting, and resolving issues across front end, back end, and database layers.',
     'Hands-on experience with Git, GitHub, and GitLab for version control and collaborative development.',
     'Experience using Postman for API development, testing, and validation.',
     'Recognized for delivering enterprise and government digital transformation projects with clean, reusable, and maintainable code following industry best practices.'
@@ -185,6 +195,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   currentYear = new Date().getFullYear();
 
   @ViewChildren('revealEl') revealElements!: QueryList<ElementRef<HTMLElement>>;
+  @ViewChild('heroSection') heroSection?: ElementRef<HTMLElement>;
   private observer?: IntersectionObserver;
 
   ngAfterViewInit(): void {
@@ -201,10 +212,32 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     );
 
     this.revealElements.forEach((el) => this.observer?.observe(el.nativeElement));
+
+    // Only offer the scroll hint when there's genuinely more page below the fold.
+    this.evaluateHasMoreContent();
+    // Re-check after fonts/images settle, since layout can shift the page height.
+    setTimeout(() => this.evaluateHasMoreContent(), 400);
+
+    if (this.heroSection) {
+      this.heroObserver = new IntersectionObserver(
+        ([entry]) => {
+          // Once the hero is less than ~35% visible, the user has scrolled far
+          // enough to have found the next section — retire the hint for good.
+          if (entry.intersectionRatio < 0.35) {
+            this.heroScrollCueDismissed = true;
+            this.updateScrollCueVisibility();
+            this.heroObserver?.disconnect();
+          }
+        },
+        { threshold: [0, 0.1, 0.2, 0.35, 0.5, 0.75, 1] }
+      );
+      this.heroObserver.observe(this.heroSection.nativeElement);
+    }
   }
 
   ngOnDestroy(): void {
     this.observer?.disconnect();
+    this.heroObserver?.disconnect();
   }
 
   toggleNav(): void {
@@ -217,6 +250,29 @@ export class AppComponent implements AfterViewInit, OnDestroy {
 
   scrollToTop(): void {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  /** Tapping the hint jumps straight to the next section and retires the hint. */
+  dismissScrollCue(): void {
+    this.heroScrollCueDismissed = true;
+    this.updateScrollCueVisibility();
+    this.heroObserver?.disconnect();
+    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  private evaluateHasMoreContent(): void {
+    const doc = document.documentElement;
+    this.hasMoreContent = doc.scrollHeight > window.innerHeight + 120;
+    this.updateScrollCueVisibility();
+  }
+
+  private updateScrollCueVisibility(): void {
+    this.showScrollCue = this.hasMoreContent && !this.heroScrollCueDismissed;
+  }
+
+  @HostListener('window:resize')
+  onResize(): void {
+    this.evaluateHasMoreContent();
   }
 
   @HostListener('window:scroll')

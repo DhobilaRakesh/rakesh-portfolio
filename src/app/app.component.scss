@@ -922,6 +922,92 @@ a.contact-value:hover {
    Floating actions + footer
    ========================================================================== */
 
+/* Mobile-only hint that the page continues below — pinned to the viewport
+   (not the hero), so it's visible the instant the page loads regardless of
+   hero height. A soft gradient previews that content continues underneath,
+   with a gently bouncing arrow as the call to scroll. */
+.scroll-hint {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 80;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.45s var(--ease), transform 0.45s var(--ease), visibility 0.45s;
+}
+
+.scroll-hint.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-hint-gradient {
+  height: 92px;
+  background: linear-gradient(to top, var(--bg) 0%, rgba(10, 14, 26, 0.78) 42%, rgba(10, 14, 26, 0) 100%);
+}
+
+.scroll-hint-btn {
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  border: none;
+  background: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  pointer-events: auto;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.scroll-hint-label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+}
+
+.scroll-hint-arrow {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--teal);
+  box-shadow: 0 12px 26px -12px rgba(0, 0, 0, 0.65);
+  animation: scroll-hint-bounce 1.8s var(--ease) infinite;
+}
+
+@keyframes scroll-hint-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-hint-arrow {
+    animation: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .scroll-hint {
+    display: block;
+  }
+}
+
 .whatsapp {
   position: fixed;
   right: 24px;
