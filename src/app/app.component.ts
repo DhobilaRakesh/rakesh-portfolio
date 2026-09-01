@@ -53,7 +53,8 @@ interface Language {
 export class AppComponent implements AfterViewInit, OnDestroy {
   profile = {
     name: 'Rakesh Dhobila',
-    role: 'Angular | Node | MEAN Stack Developer',
+    // role: 'Angular | Node | MEAN Stack Developer',
+    role: 'Angular | Frontend Engineer | Node.js | MongoDB',
     subtitle: 'Angular • TypeScript',
     location: 'Hyderabad, India',
     email: 'rakeshdhobila006@gmail.com',
