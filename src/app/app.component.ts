@@ -63,7 +63,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     phone: '+91 8639822946',
     whatsapp: 'https://wa.me/918639822946',
     photo: 'assets/rakesh1.jpeg',
-    resume: 'assets/Rakesh_Resume.pdf',
+    resume: 'assets/Resume.pdf',
     coverLetter: 'assets/Rakesh_Cover_Letter.pdf'
   };
 
@@ -105,7 +105,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     { key: 'fn', text: 'developer.buildSomethingGreat();' }
   ];
 
-  techIcons = ['Angular', 'TypeScript', 'Node.js', 'MongoDB', 'jQuery', 'HTML5', 'CSS3', 'React', 'JavaScript', 'REST APIs'];
+  techIcons = ['Angular', 'TypeScript', 'Node.js', 'MongoDB', 'jQuery', 'HTML5', 'CSS3', 'JavaScript', 'REST APIs'];
 
   summaryPoints = [
     '3+ years of professional experience in front end web application development using Angular, TypeScript, HTML5, CSS3, SCSS, Bootstrap, and RxJS.',
@@ -125,7 +125,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   skills: SkillGroup[] = [
     {
       title: 'Frontend',
-      items: ['Angular (v10-v20)', 'TypeScript', 'RxJS', 'Signals', 'JavaScript', 'HTML5', 'CSS3', 'SCSS', 'Bootstrap', 'PrimeNG']
+      items: ['Angular', 'TypeScript', 'RxJS', 'Signals', 'JavaScript', 'HTML5', 'CSS3', 'SCSS', 'Bootstrap', 'PrimeNG']
     },
     {
       title: 'Backend',
@@ -137,7 +137,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     },
     {
       title: 'Security & Tools',
-      items: ['JWT', 'OAuth', 'MSAL', 'Git', 'Postman', 'PowerShell', 'Swagger']
+      items: ['JWT', 'OAuth', 'Git', 'Postman', 'PowerShell', 'Swagger']
     }
   ];
 
