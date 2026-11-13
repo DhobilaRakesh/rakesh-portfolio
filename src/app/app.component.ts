@@ -64,7 +64,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     whatsapp: 'https://wa.me/918639822946',
     photo: 'assets/rakesh1.jpeg',
     resume: 'assets/Resume.pdf',
-    coverLetter: 'assets/Rakesh_Cover_Letter.pdf'
+    coverLetter: 'assets/Cover_Letter.pdf'
   };
 
   navLinks: NavLink[] = [
@@ -109,8 +109,8 @@ export class AppComponent implements AfterViewInit, OnDestroy {
 
   summaryPoints = [
     '3+ years of professional experience in front end web application development using Angular, TypeScript, HTML5, CSS3, SCSS, Bootstrap, and RxJS.',
-    '1 year of hands-on experience in back end development using Node.js, Express.js, and MongoDB for building RESTful APIs and server-side applications.',
     'Strong expertise in Angular, TypeScript, RxJS, HTML5, CSS3, Bootstrap, PrimeNG, and building scalable, maintainable frontend applications.',
+    'Hands-on experience in backend development using Node.js, Express.js, and MongoDB to build RESTful APIs and server-side applications.',
     'Experience in designing, developing, and consuming RESTful APIs using Node.js and Express.js.',
     'Hands-on experience with MongoDB, including schema design, CRUD operations, queries, and aggregation pipelines.',
     'Good experience integrating Angular applications with back end APIs using HttpClient, services, and RxJS.',
@@ -181,13 +181,13 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   experiences: Experience[] = [
     {
       role: 'MEAN Stack Developer',
-      company: 'Suvarna Technosoft Pvt Ltd.',
+      company: 'Suvarna Technosoft Pvt Ltd (SoftHealth India Pvt Ltd.)',
       client: 'ABDM Digital Healthcare Services Portal',
       period: 'May 2025 - Present'
     },
     {
       role: 'Angular Developer',
-      company: 'Suvarna Technosoft Pvt Ltd.',
+      company: 'Suvarna Technosoft Pvt Ltd (SoftHealth India Pvt Ltd.)',
       client: 'ABDM Digital Healthcare Services Portal',
       period: 'May 2023 - Present'
     }
